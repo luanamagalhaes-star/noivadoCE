@@ -35,7 +35,7 @@ body{
   background-color:var(--cream);
 }
 
-/* FAIXA LATERAL — usa a estampa de listras que você mandou (assets/estampa-listras.jpg) */
+/* FAIXA LATERAL — usa a estampa de listras que você mandou (/estampa-listras.jpg) */
 .stripes-wrap{
   position:relative;
   overflow:hidden;
@@ -46,7 +46,7 @@ body{
   position:absolute;
   top:0;bottom:0;
   width:var(--stripe-w);
-  background-image:url('assets/estampa-listras.jpg');
+  background-image:url('/estampa-listras.jpg');
   background-size:180px auto;
   background-repeat:repeat;
   pointer-events:none;
@@ -74,7 +74,7 @@ body{
 
 /* ══════════════════════════════════════════════════════════════
    TÍTULO EM IMAGEM: como a fonte não existe, o nome do casal vira
-   uma <img> (ver <body> abaixo: troque src="assets/titulo-nomes.png"
+   uma <img> (ver <body> abaixo: troque src="/titulo-nomes.png"
    pela imagem que você vai mandar com as palavras já desenhadas).
    .hero-names-img controla só o TAMANHO da imagem do título.
    ══════════════════════════════════════════════════════════════ */
@@ -99,7 +99,7 @@ body{
   margin:0 auto;
 }
 /* Título de seção também em imagem por enquanto — mesma lógica do hero.
-   Troque assets/titulo-programacao.png quando tiver a peça pronta;
+   Troque /titulo-programacao.png quando tiver a peça pronta;
    até lá, .sec-title-fallback (texto) aparece como substituto. */
 .sec-title-img{ height:64px; width:auto; margin:0 auto 40px; display:block; }
 .sec-title-fallback{
@@ -143,7 +143,7 @@ body{
 /* ── FOOTER — usa a estampa paisley com o monograma C+E que você mandou ── */
 footer{
   text-align:center;padding:64px 40px;
-  background-image:url('assets/estampa-paisley.jpg');
+  background-image:url('/estampa-paisley.jpg');
   background-size:340px auto;
   background-repeat:repeat;
 }
@@ -185,12 +185,12 @@ footer{
      - .hero-mono → o monograma dos coraçõezinhos C+E que você mandou (já aplicado)
      - .hero-names-img → AQUI vai a imagem com "C & E" (ou os nomes completos)
        escrita na fonte especial. Por enquanto está apontando pra um arquivo
-       que ainda não existe (assets/titulo-nomes.png) — troque pelo arquivo
+       que ainda não existe (/titulo-nomes.png) — troque pelo arquivo
        real quando estiver pronto. -->
 <section id="hero">
-  <img class="hero-mono" src="assets/monograma-ce-transparent.png" alt="C & E"/>
+  <img class="hero-mono" src="/monograma-ce-transparent.png" alt="C & E"/>
   <div class="hero-eyebrow">Estamos noivos!</div>
-  <img class="hero-names-img" src="assets/titulo-nomes.png" alt="C & E" onerror="this.outerHTML='&lt;div style=\'font-family:var(--push);font-size:clamp(2.6rem,7vw,4.5rem);color:var(--vinho);margin-bottom:8px;\'&gt;C &amp; E&lt;/div&gt;'"/>
+  <img class="hero-names-img" src="/titulo-nomes.png" alt="C & E" onerror="this.outerHTML='&lt;div style=\'font-family:var(--push);font-size:clamp(2.6rem,7vw,4.5rem);color:var(--vinho);margin-bottom:8px;\'&gt;C &amp; E&lt;/div&gt;'"/>
   <div class="hero-date">Noivado &nbsp;·&nbsp; 5 de Dezembro de 2026 &nbsp;·&nbsp; Trancoso, Bahia</div>
 </section>
 
@@ -199,20 +199,20 @@ footer{
 <div class="div-line"></div>
 
 <!-- ══════════════ PROGRAMAÇÃO — Sexta e Sábado ══════════════
-     Troque os ícones (assets/icone-sexta.png / icone-sabado.png) pelos que
+     Troque os ícones (/icone-sexta.png / icone-sabado.png) pelos que
      você vai mandar, e preencha horário/local/traje de cada dia. -->
 <section id="programacao">
   <div class="sec" style="position:relative;z-index:1;">
 
     <!-- Título da seção em imagem — mesma lógica do hero. Enquanto
-         assets/titulo-programacao.png não existir, mostra o texto de baixo. -->
-    <img class="sec-title-img" src="assets/titulo-programacao.png" alt="Programação"
+         /titulo-programacao.png não existir, mostra o texto de baixo. -->
+    <img class="sec-title-img" src="/titulo-programacao.png" alt="Programação"
          onerror="this.outerHTML='&lt;div class=\'sec-title-fallback\'&gt;Programação&lt;/div&gt;'"/>
 
     <div class="prog-row">
       <!-- SEXTA-FEIRA (ícone vinho) -->
       <div class="prog-single">
-        <img class="prog-icon" src="assets/icone-sexta.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
+        <img class="prog-icon" src="/icone-sexta.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
         <div class="prog-day">Sexta-feira</div>
         <div class="prog-dt">4 de Dezembro &nbsp;|&nbsp; a partir das 11 horas</div>
         <p class="prog-loc">Dia de praia<br/>Al Mar — Trancoso, Bahia</p>
@@ -220,7 +220,7 @@ footer{
       </div>
       <!-- SÁBADO (ícone bege) -->
       <div class="prog-single">
-        <img class="prog-icon" src="assets/icone-sabado.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
+        <img class="prog-icon" src="/icone-sabado.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
         <div class="prog-day">Sábado</div>
         <div class="prog-dt">5 de Dezembro &nbsp;|&nbsp; 14 horas</div>
         <p class="prog-loc">Noivado<br/>Terra Vista Golf — Casa 17<br/>Trancoso, Bahia</p>
