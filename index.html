@@ -19,6 +19,7 @@
   --vinho-escuro:#5E0F11;/* vinho mais escuro — hover, contraste */
   --texto:#4A2A26;       /* cor do texto corrido (marrom-avermelhado escuro, mais suave que preto) */
   --cream:#F3EFE5;       /* fundo claro */
+  --azul-marinho:#1F2B44;/* azul marinho — escritos do sábado */
 
   --push:'Cormorant Garamond',Georgia,serif; /* PLACEHOLDER até a imagem da fonte de título chegar */
   --cg:'BIZ UDGothic',sans-serif;            /* corpo de texto */
@@ -35,25 +36,10 @@ body{
   background-color:var(--cream);
 }
 
-/* FAIXA LATERAL — usa a estampa de listras que você mandou (/estampa-listras.jpg) */
 .stripes-wrap{
   position:relative;
   overflow:hidden;
 }
-.stripes-wrap::before,
-.stripes-wrap::after{
-  content:'';
-  position:absolute;
-  top:0;bottom:0;
-  width:var(--stripe-w);
-  background-image:url('/estampa-listras.jpg');
-  background-size:180px auto;
-  background-repeat:repeat;
-  pointer-events:none;
-  z-index:2;
-}
-.stripes-wrap::before{left:0;}
-.stripes-wrap::after{right:0;}
 
 /* ── HERO ── */
 #hero{
@@ -116,6 +102,12 @@ body{
   font-family:var(--cg);font-size:1.25rem;font-style:italic;color:var(--texto);opacity:.65;
   margin-top:16px;
 }
+
+/* SÁBADO — escritos em azul marinho */
+.prog-single.sabado .prog-day{color:var(--azul-marinho);}
+.prog-single.sabado .prog-dt{color:var(--azul-marinho);opacity:.9;}
+.prog-single.sabado .prog-loc{color:var(--azul-marinho);opacity:.8;}
+.prog-single.sabado .prog-traje{color:var(--azul-marinho);opacity:.75;}
 
 /* ── FOOTER — usa a estampa paisley com o monograma C+E que você mandou ── */
 footer{
@@ -186,7 +178,7 @@ footer{
         <div class="prog-traje">Traje: biquíni &amp; bermuda</div>
       </div>
       <!-- SÁBADO (ícone bege) -->
-      <div class="prog-single">
+      <div class="prog-single sabado">
         <img class="prog-icon" src="/icone-sabado.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
         <div class="prog-day">Sábado</div>
         <div class="prog-dt">5 de Dezembro &nbsp;|&nbsp; 14 horas</div>
@@ -201,7 +193,6 @@ footer{
 </div><!-- /stripes-wrap -->
 
 <footer>
-  <div class="fn">C &amp; E</div>
   <div class="fd">05 · 12 · 2026 &nbsp;—&nbsp; Trancoso, Bahia</div>
 </footer>
 
