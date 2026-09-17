@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>C &amp; E — Noivado — DD.MM.AAAA</title>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FONTE DE APOIO (texto corrido). A fonte dos TÍTULOS não existe
+     como fonte de computador — os títulos (nomes, "Programação")
+     vão virar IMAGENS (ver comentário mais abaixo, perto do Hero).
+     ══════════════════════════════════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  /* ── PALETA — tirada das estampas que você mandou (vinho + creme) ── */
+  --vinho:#8A171A;       /* vermelho/vinho principal — títulos, ícones, detalhes */
+  --vinho-escuro:#5E0F11;/* vinho mais escuro — hover, contraste */
+  --texto:#4A2A26;       /* cor do texto corrido (marrom-avermelhado escuro, mais suave que preto) */
+  --cream:#F3EFE5;       /* fundo claro */
+
+  --push:'Cormorant Garamond',Georgia,serif; /* PLACEHOLDER até a imagem da fonte de título chegar */
+  --cg:'Cormorant Garamond',Georgia,serif;   /* corpo de texto */
+
+  --stripe-w:96px; /* largura da faixa lateral com a estampa de listras */
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:var(--cg);
+  color:var(--texto);
+  overflow-x:hidden;
+  background-color:var(--cream);
+}
+
+/* FAIXA LATERAL — usa a estampa de listras que você mandou (assets/estampa-listras.jpg) */
+.stripes-wrap{
+  position:relative;
+  overflow:hidden;
+}
+.stripes-wrap::before,
+.stripes-wrap::after{
+  content:'';
+  position:absolute;
+  top:0;bottom:0;
+  width:var(--stripe-w);
+  background-image:url('assets/estampa-listras.jpg');
+  background-size:180px auto;
+  background-repeat:repeat;
+  pointer-events:none;
+  z-index:2;
+}
+.stripes-wrap::before{left:0;}
+.stripes-wrap::after{right:0;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:40px 40px;
+  text-align:center;
+}
+/* Monograma (corações C+E que você mandou) */
+.hero-mono{width:220px;height:auto;margin-bottom:20px;display:block;}
+.hero-eyebrow{
+  font-family:var(--cg);font-style:italic;
+  font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--vinho);opacity:.75;margin-bottom:16px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TÍTULO EM IMAGEM: como a fonte não existe, o nome do casal vira
+   uma <img> (ver <body> abaixo: troque src="assets/titulo-nomes.png"
+   pela imagem que você vai mandar com as palavras já desenhadas).
+   .hero-names-img controla só o TAMANHO da imagem do título.
+   ══════════════════════════════════════════════════════════════ */
+.hero-names-img{
+  width:min(90%,640px);
+  height:auto;
+  margin-bottom:20px;
+  display:block;
+  margin-left:auto;margin-right:auto;
+}
+.hero-date{
+  font-family:var(--cg);
+  font-size:1.25rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--texto);opacity:.75;
+}
+
+/* ── SEÇÃO ── */
+.sec{
+  padding:80px 60px;
+  text-align:center;
+  max-width:960px;
+  margin:0 auto;
+}
+/* Título de seção também em imagem por enquanto — mesma lógica do hero.
+   Troque assets/titulo-programacao.png quando tiver a peça pronta;
+   até lá, .sec-title-fallback (texto) aparece como substituto. */
+.sec-title-img{ height:64px; width:auto; margin:0 auto 40px; display:block; }
+.sec-title-fallback{
+  font-family:var(--push); font-size:3rem; color:var(--vinho);
+  margin-bottom:40px; line-height:1;
+}
+.div-line{
+  height:1px;
+  margin:0 var(--stripe-w);
+  background:linear-gradient(to right,transparent,rgba(138,23,26,.2),transparent);
+}
+.body-p{
+  font-family:var(--cg);font-size:1.15rem;color:var(--texto);
+  opacity:.75;line-height:1.8;max-width:560px;margin:0 auto;
+}
+
+/* ── PROGRAMAÇÃO — 2 dias lado a lado (empilha no mobile) ── */
+.prog-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  text-align:center;
+}
+.prog-single{display:flex;flex-direction:column;align-items:center;gap:8px;}
+/* Ícone de cada dia — você vai mandar um pra sexta e outro pro sábado */
+.prog-icon{height:100px;width:auto;object-fit:contain;margin-bottom:8px;}
+.prog-day{
+  font-family:var(--push);font-size:2rem;color:var(--vinho);line-height:1;margin-bottom:2px;
+}
+.prog-dt{
+  font-family:var(--cg);font-size:1.15rem;letter-spacing:.1em;
+  color:var(--texto);opacity:.85;
+}
+.prog-loc{
+  font-family:var(--cg);font-size:1.1rem;color:var(--texto);opacity:.7;line-height:1.7;
+  margin-top:6px;
+}
+.prog-traje{
+  font-family:var(--cg);font-size:1.05rem;font-style:italic;color:var(--texto);opacity:.65;
+  margin-top:14px;
+}
+
+/* ── FOOTER — usa a estampa paisley com o monograma C+E que você mandou ── */
+footer{
+  text-align:center;padding:64px 40px;
+  background-image:url('assets/estampa-paisley.jpg');
+  background-size:340px auto;
+  background-repeat:repeat;
+}
+.fn{font-family:var(--push);font-size:3rem;color:var(--cream);margin-bottom:12px;text-shadow:0 1px 3px rgba(0,0,0,.25);}
+.fd{font-family:var(--cg);font-size:.9rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,239,229,.85);text-shadow:0 1px 3px rgba(0,0,0,.25);}
+
+/* ── TABLET ── */
+@media(max-width:900px){
+  :root{ --stripe-w:56px; }
+  .sec{ padding:56px 32px; }
+  .prog-row{ gap:40px; }
+}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  :root{ --stripe-w:10px; }
+  #hero{ padding:32px 20px; }
+  .hero-mono{ width:150px; margin-bottom:16px; }
+  .hero-names-img{ width:100%; }
+  .hero-eyebrow{ font-size:.95rem; }
+  .hero-date{ font-size:1.05rem; }
+  .sec{ padding:44px 20px; }
+  .sec-title-img{ height:44px; margin-bottom:28px; }
+  .sec-title-fallback{ font-size:2.2rem; margin-bottom:28px; }
+  .prog-row{ grid-template-columns:1fr; gap:36px; }
+  .prog-icon{ height:74px; }
+  .prog-day{ font-size:1.7rem; }
+  .prog-dt{ font-size:1.05rem; }
+  .prog-loc{ font-size:1rem; }
+  .body-p{ font-size:1.05rem; }
+  .fn{ font-size:2.4rem; }
+  .fd{ font-size:.78rem; letter-spacing:.18em; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════
+     - .hero-mono → o monograma dos coraçõezinhos C+E que você mandou (já aplicado)
+     - .hero-names-img → AQUI vai a imagem com "C & E" (ou os nomes completos)
+       escrita na fonte especial. Por enquanto está apontando pra um arquivo
+       que ainda não existe (assets/titulo-nomes.png) — troque pelo arquivo
+       real quando estiver pronto. -->
+<section id="hero">
+  <img class="hero-mono" src="assets/monograma-ce-transparent.png" alt="C & E"/>
+  <div class="hero-eyebrow">Estamos noivos!</div>
+  <img class="hero-names-img" src="assets/titulo-nomes.png" alt="C & E" onerror="this.outerHTML='&lt;div style=\'font-family:var(--push);font-size:clamp(2.6rem,7vw,4.5rem);color:var(--vinho);margin-bottom:8px;\'&gt;C &amp; E&lt;/div&gt;'"/>
+  <div class="hero-date">Noivado &nbsp;·&nbsp; 5 de Dezembro de 2026 &nbsp;·&nbsp; Trancoso, Bahia</div>
+</section>
+
+<div class="stripes-wrap">
+
+<div class="div-line"></div>
+
+<!-- ══════════════ PROGRAMAÇÃO — Sexta e Sábado ══════════════
+     Troque os ícones (assets/icone-sexta.png / icone-sabado.png) pelos que
+     você vai mandar, e preencha horário/local/traje de cada dia. -->
+<section id="programacao">
+  <div class="sec" style="position:relative;z-index:1;">
+
+    <!-- Título da seção em imagem — mesma lógica do hero. Enquanto
+         assets/titulo-programacao.png não existir, mostra o texto de baixo. -->
+    <img class="sec-title-img" src="assets/titulo-programacao.png" alt="Programação"
+         onerror="this.outerHTML='&lt;div class=\'sec-title-fallback\'&gt;Programação&lt;/div&gt;'"/>
+
+    <div class="prog-row">
+      <!-- SEXTA-FEIRA (ícone vinho) -->
+      <div class="prog-single">
+        <img class="prog-icon" src="assets/icone-sexta.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
+        <div class="prog-day">Sexta-feira</div>
+        <div class="prog-dt">4 de Dezembro &nbsp;|&nbsp; a partir das 11 horas</div>
+        <p class="prog-loc">Dia de praia<br/>Al Mar — Trancoso, Bahia</p>
+        <div class="prog-traje">Traje: biquíni &amp; bermuda</div>
+      </div>
+      <!-- SÁBADO (ícone bege) -->
+      <div class="prog-single">
+        <img class="prog-icon" src="assets/icone-sabado.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
+        <div class="prog-day">Sábado</div>
+        <div class="prog-dt">5 de Dezembro &nbsp;|&nbsp; 14 horas</div>
+        <p class="prog-loc">Noivado<br/>Terra Vista Golf — Casa 17<br/>Trancoso, Bahia</p>
+        <div class="prog-traje">Traje: beach chique all white</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /stripes-wrap -->
+
+<footer>
+  <div class="fn">C &amp; E</div>
+  <div class="fd">05 · 12 · 2026 &nbsp;—&nbsp; Trancoso, Bahia</div>
+</footer>
+
+</body>
+</html>
