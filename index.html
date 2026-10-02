@@ -15,11 +15,11 @@
 <style>
 :root{
   /* ── PALETA — tirada das estampas que você mandou (vinho + creme) ── */
-  --vinho:#8A171A;       /* vermelho/vinho principal — títulos, ícones, detalhes */
+  --vinho:#8A171A;       /* vermelho/vinho principal — títulos, ícones, detalhes, fundo da Programação */
   --vinho-escuro:#5E0F11;/* vinho mais escuro — hover, contraste */
   --texto:#4A2A26;       /* cor do texto corrido (marrom-avermelhado escuro, mais suave que preto) */
-  --cream:#F3EFE5;       /* fundo claro */
-  --azul-marinho:#1F2B44;/* azul marinho — escritos do sábado */
+  --cream:#F3EFE5;       /* fundo claro / tom off-white para texto sobre o vinho */
+  --azul-marinho:#1F2B44;/* azul marinho — não usado mais na Programação, mantido por compatibilidade */
 
   --push:'Cormorant Garamond',Georgia,serif; /* PLACEHOLDER até a imagem da fonte de título chegar */
   --cg:'BIZ UDGothic',sans-serif;            /* corpo de texto */
@@ -79,35 +79,29 @@ body{
   opacity:.75;line-height:1.8;max-width:560px;margin:0 auto;
 }
 
-/* ── PROGRAMAÇÃO — 2 dias lado a lado (empilha no mobile) ── */
+/* ── PROGRAMAÇÃO — fundo vinho (cor exata da estampa), texto off-white ── */
+#programacao{
+  background-color:var(--vinho);
+}
 .prog-row{
   display:grid;grid-template-columns:1fr 1fr;gap:56px;
   text-align:center;
 }
 .prog-single{display:flex;flex-direction:column;align-items:center;gap:8px;}
-/* Ícone de cada dia — você vai mandar um pra sexta e outro pro sábado */
-.prog-icon{height:170px;width:auto;object-fit:contain;margin-bottom:12px;}
-.prog-day{
-  font-family:var(--cg);font-weight:700;font-size:1.9rem;letter-spacing:.06em;color:var(--vinho);line-height:1.2;margin-bottom:8px;
-}
+/* Ícone de cada dia — já vem com o nome do dia desenhado na própria imagem */
+.prog-icon{height:220px;width:auto;object-fit:contain;margin-bottom:4px;}
 .prog-dt{
   font-family:var(--cg);font-size:1.4rem;letter-spacing:.1em;
-  color:var(--texto);opacity:.85;
+  color:var(--cream);opacity:.95;
 }
 .prog-loc{
-  font-family:var(--cg);font-size:1.35rem;color:var(--texto);opacity:.7;line-height:1.7;
+  font-family:var(--cg);font-size:1.35rem;color:var(--cream);opacity:.85;line-height:1.7;
   margin-top:8px;
 }
 .prog-traje{
-  font-family:var(--cg);font-size:1.25rem;color:var(--texto);opacity:.65;
+  font-family:var(--cg);font-size:1.25rem;color:var(--cream);opacity:.8;
   margin-top:16px;
 }
-
-/* SÁBADO — escritos em azul marinho */
-.prog-single.sabado .prog-day{color:var(--azul-marinho);}
-.prog-single.sabado .prog-dt{color:var(--azul-marinho);opacity:.9;}
-.prog-single.sabado .prog-loc{color:var(--azul-marinho);opacity:.8;}
-.prog-single.sabado .prog-traje{color:var(--azul-marinho);opacity:.75;}
 
 /* ── FOOTER — usa a estampa paisley com o monograma C+E que você mandou ── */
 footer{
@@ -134,8 +128,7 @@ footer{
   .hero-paisley-band{ height:90px; background-size:190px auto; }
   .sec{ padding:44px 20px; }
   .prog-row{ grid-template-columns:1fr; gap:36px; }
-  .prog-icon{ height:120px; }
-  .prog-day{ font-size:1.5rem; }
+  .prog-icon{ height:160px; }
   .prog-dt{ font-size:1.2rem; }
   .prog-loc{ font-size:1.15rem; }
   .prog-traje{ font-size:1.1rem; }
@@ -163,24 +156,23 @@ footer{
 <div class="div-line"></div>
 
 <!-- ══════════════ PROGRAMAÇÃO — Sexta e Sábado ══════════════
-     Troque os ícones (/icone-sexta.png / icone-sabado.png) pelos que
-     você vai mandar, e preencha horário/local/traje de cada dia. -->
+     Fundo vinho (cor exata da estampa) + texto off-white.
+     Os ícones já trazem o nome do dia desenhado neles, então o
+     título "Sexta-feira" / "Sábado" em texto foi removido daqui. -->
 <section id="programacao">
   <div class="sec" style="position:relative;z-index:1;">
 
     <div class="prog-row">
-      <!-- SEXTA-FEIRA (ícone vinho) -->
+      <!-- SEXTA-FEIRA -->
       <div class="prog-single">
-        <img class="prog-icon" src="/icone-sexta.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
-        <div class="prog-day">Sexta-feira</div>
+        <img class="prog-icon" src="/icone-sexta.png" alt="Sexta-feira" onerror="this.style.display='none'"/>
         <div class="prog-dt">4 de Dezembro &nbsp;|&nbsp; 11 horas</div>
         <p class="prog-loc">Beach Day<br/>Al Mar — Trancoso, Bahia</p>
         <div class="prog-traje">Traje: biquíni &amp; bermuda</div>
       </div>
-      <!-- SÁBADO (ícone bege) -->
-      <div class="prog-single sabado">
-        <img class="prog-icon" src="/icone-sabado.png" alt="Folha de palmeira" onerror="this.style.display='none'"/>
-        <div class="prog-day">Sábado</div>
+      <!-- SÁBADO -->
+      <div class="prog-single">
+        <img class="prog-icon" src="/icone-sabado.png" alt="Sábado" onerror="this.style.display='none'"/>
         <div class="prog-dt">5 de Dezembro &nbsp;|&nbsp; 14 horas</div>
         <p class="prog-loc">Noivado<br/>Terra Vista Golf — Casa 17<br/>Trancoso, Bahia</p>
         <div class="prog-traje">Traje: beach chique all white</div>
